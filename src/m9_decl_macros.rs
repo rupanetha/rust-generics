@@ -35,15 +35,27 @@
 mod tests {
     use super::*;
 
-    macro_rules! mad_skills {
-        // ($x: expr) => {
-        //     format!("You sent an expression: {}", $x)
-        // };
+    // macro_rules! mad_skills {
+    //     // ($x: expr) => {
+    //     //     format!("You sent an expression: {}", $x)
+    //     // };
 
-        ($x: ty) => {
-            match stringify!($x) {
-                "i32" => "You sent an i32 type".to_string(),
-                _ => "You sent something else".to_string(),
+    //     ($x: ty) => {
+    //         match stringify!($x) {
+    //             "i32" => "You sent an i32 type".to_string(),
+    //             _ => "You sent something else".to_string(),
+    //         }
+    //     }
+    // }
+
+    macro_rules! my_vec {
+        ( $($x: expr),+ ) => {
+            {
+                let mut temp_vec = Vec::new();
+                $(
+                    temp_vec.push($x);
+                )+
+                temp_vec
             }
         }
     }
@@ -51,7 +63,12 @@ mod tests {
     #[test]
     fn tests_declarative_macro() {
 
-        let some_var: String = mad_skills!(u8);
-        dbg!(some_var);
+        let mut x: Vec<i32> = vec![1, 2, 3];
+        let mut y:Vec<i32> = my_vec!(1);
+
+        dbg!(y);
+
+        // let some_var: String = mad_skills!(u8);
+        // dbg!(some_var);
     }
 }
