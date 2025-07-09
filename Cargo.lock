@@ -48,6 +48,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "ai_functions"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "911649227e07403a6c53676f9d15bf919e6541ffaad3a6d5ba5c3f6beed3d11b"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.104",
+]
+
+[[package]]
 name = "arrayvec"
 version = "0.7.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1870,6 +1881,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "my_proc_macro"
+version = "0.1.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.104",
+]
+
+[[package]]
 name = "native-tls"
 version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2627,7 +2647,9 @@ dependencies = [
 name = "rust-basics"
 version = "0.1.0"
 dependencies = [
+ "ai_functions",
  "ethers",
+ "my_proc_macro",
  "reqwest",
  "serde_json",
  "tokio",
